@@ -1,0 +1,12 @@
+Assignment 2 - Image Processing
+
+Due 24-01-2017
+
+The Task
+
+Drawing on techniques presented in Chapter 15 of Learning Processing, create a program that meets the following requirements:
+
+    Involves interactivity (mouse or keyboard)
+    Involves classes
+    Lets the user remix two images involving three or more distinct approaches/techniques
+    Lets the user save the remixed image as a new file into the sketch’s folder (see https://processing.org/reference/save_.html ).
