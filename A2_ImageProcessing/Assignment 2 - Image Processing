@@ -10,3 +10,5 @@ Drawing on techniques presented in Chapter 15 of Learning Processing, create a p
     Involves classes
     Lets the user remix two images involving three or more distinct approaches/techniques
     Lets the user save the remixed image as a new file into the sketch’s folder (see https://processing.org/reference/save_.html ).
+
+
