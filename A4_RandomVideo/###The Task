@@ -1,0 +1,15 @@
+###The Task
+
+Drawing on techniques presented in the Introduction chapter of Nature of Code and Chapter 16 of Learning Processing, create a program that:
+
+* Uses Gaussian distribution or a Montecarlo algorithm
+* Uses 2D or 3D Perlin noise
+* Acts on a video (live or pre-recorded)
+
+You can also include any other visuals of your choice. (Or not.)
+
+The result doesn't need to be beautiful. In fact, I'd like you to embrace the world of Internet Ugly: http://journals.sagepub.com/doi/abs/10.1177/1470412914544516
+
+###Due date
+
+This assignment is due on February the 7th at 8:30am.
