@@ -5,10 +5,13 @@ Another project of influence was James Ryan's Bad News  and Talk Town games. In 
 
 Research Questions
 - What level of impact can 1 person have on a large group
-- 
+- Does a user need to have input to feel involved/interested 
+- Can the complexity of social interaction be emulated by a programming in a compelling way
 
 
 
 Decisions and new Questions
 - Productionist was outside of the scope for this project, JSON not the way to go
 -Character Dialog becomes superfluous fluff and doesn’t push the project in an interesting direction. Similar results  
+-Representations of ideas is problematic in processing. diminishing returns on granularity and authoring raise questions on feasibility
+- The Eliza problem: if someone believes that there is an underlying intelligence to what is essentially a statistic calculator, is that not just propagating untruths yourself as an artist (oh the irony)

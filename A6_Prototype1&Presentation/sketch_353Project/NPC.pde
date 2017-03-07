@@ -11,8 +11,8 @@ class NPC {
   Suspect[] suspects;
   color c ;
   int inf;
-
-  NPC(PVector _loc, float _size, String _id, float _r, float _g, float _b, int _inf) {
+  String suspect1;
+  NPC(PVector _loc, float _size, String _id, float _r, float _g, float _b, int _inf, String _s) {
     loc = _loc;
     size = _size;
     id = _id;
@@ -20,13 +20,12 @@ class NPC {
     g = _g;
     b = _b;
     inf = _inf;
+    suspect1=_s;
     c = color(r, g, b);
     suspects = new Suspect[count];
     for (int i=0; i<count; i++) {
-      int trust=int(random(50));
-      if (names[i]==id) {
-        trust =100;
-      }
+      int  trust =0;
+
       suspects[i]= new Suspect(names[i], trust);
     }
   }
@@ -44,15 +43,19 @@ class NPC {
   void display() {
 
     if (getDist(player.loc)) {
-      fill(0, 200, 150);
+      fill(255);
       ellipse(loc.x, loc.y, 2*size, 2*size);
       displayID();
-      player.changeColor(r,g,b,inf);
+      if (player.start) {
+        changeColor(player.r, player.g, player.b, player.myinf);
+      }
+      player.changeColor(r, g, b, inf);
 
+      player.start =true;
       println("Villager: " + id +" suspects: " + getSuspect() );
     }
-
-
+fill(0);
+    text(inf, loc.x, loc.y+size);
     fill(c);
     ellipse(loc.x, loc.y, size, size);
   }
@@ -99,9 +102,30 @@ class NPC {
 
   void trustLevels() {
     fill(255);
-    for (int i=0; i<count; i++) {
-      text(names[i], 300, 30+map(i, 0, count-1, 0, 140));
-      //text(suspectName(i), 500, 30+map(i, 0, count-1, 0, 140));
+    for (int i=0; i<1; i++) {
+      text(id, 300, 30+map(i, 0, count-1, 0, 140));
+      text(inf, 500, 30+map(i, 0, count-1, 0, 140));
     }
+  }
+
+
+  void changeColor(float newr, float newg, float newb, int _inf) {
+    println("newR="+newr);
+    float r2 = ((newr*_inf)+(r*inf))/ (inf+_inf);
+    println("r2="+r2);
+    float g2 = ((newg*_inf)+(g*inf))/ (inf+_inf);
+    float b2 = ((newb*_inf)+(b *inf))/ (inf+_inf);
+    r=r2;
+    g=g2;
+    b=b2;
+    c = color(r, g, b);
+  }
+
+  String decide() {
+    String susp = suspect1;
+
+
+
+    return susp;
   }
 }
