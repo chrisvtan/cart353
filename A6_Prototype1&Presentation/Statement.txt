@@ -1,3 +1,14 @@
 TBD is a town simulator that aims to explore how information is transferred, amplified, distorted and lost through the day to day actions of gossip, forgetting, and trusting. The main inspiration be hind TBD was the University of Pennsylvania What Makes Online Content Viral? by Jonah A. Berger and Katherine L. Milkman. The paper looked at what ideas would spread, and how the content and emotional reaction to that content had a significant factor in what levels of broadcast the idea would reach. Similar to a virus (hence the name) the ideas would move from one brain to another and change slightly, being spread again. 
 
 Another project of influence was James Ryan's Bad News  and Talk Town games. In these games, a computer manages a host of NPCs that share information between each other and it is the task of the player to discern the truth. With TBA the idea is to reach out to others and gather information in the same way, while one member of that community activity aim so sew discord and misinformation. The game is meant to show how the distortion of truth is not solely caused by the source of the lie, but is in large part helped along those who spread along the false facts to their circle of influence who themselves pass it on. In this way TBA becomes closer to an epidemic simulator than any sort of social game.
+
+
+Research Questions
+- What level of impact can 1 person have on a large group
+- 
+
+
+
+Decisions and new Questions
+- Productionist was outside of the scope for this project, JSON not the way to go
+-Character Dialog becomes superfluous fluff and doesn’t push the project in an interesting direction. Similar results  

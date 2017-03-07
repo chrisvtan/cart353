@@ -16,7 +16,11 @@ void setup() {
   player = new Player(new PVector(width/2, width/2), 30);
 
   for (int i=0; i<count; i++) {
-    npcs[i] = new NPC(new PVector(width/(count+1)*(i+1), width/2), 30, names[i]);
+    float r = random(255);
+    float g = random(255);
+    float b = random(255);
+    int inf = int(random(10));
+    npcs[i] = new NPC(new PVector(width/(count+1)*(i+1), width/2), 30, names[i],r,g,b,inf);
     npcs[i].setImage("photo"+i+".png");
   }
 }
