@@ -99,10 +99,10 @@ void draw() {
   if (millis() > time + gossipTimer*1000)
   {
     randomGossip();
-    println("EVERY2!"); 
+    println("Random Gossip"); 
     time = millis();
   }
-
+//if the number of talk objects exceedes 200, delete the earliest one to avoid performance issues
   if (talks.size()>200) {
     talks.remove(0);
   }
