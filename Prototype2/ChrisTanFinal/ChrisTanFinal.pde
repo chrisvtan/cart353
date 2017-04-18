@@ -102,6 +102,10 @@ void draw() {
     println("EVERY2!"); 
     time = millis();
   }
+
+  if (talks.size()>200) {
+    talks.remove(0);
+  }
 }
 //WHEN THE MOUSE IS PRESSED
 void mousePressed() {
@@ -184,22 +188,15 @@ void randomGossip() {
   int randFrom=getRandFrom(randTo);
   Agent from = agents.get(randFrom);
   //get an random gossip subject
-  int randSub= getRandSub(randTo, randFrom);
-  Thought subject= null;
+
+  Thought subject= getRandSub(to, from);
 
   //for each person on the gossipers mind
-  for (Thought t : from.thoughts) {
-    //if the subject hasnt been chosen yet
-    if (subject == null) {
-      //if the agent i'm thinking of doesn't have the same id as me
-      Thought t2 = from.thoughts.get(randSub);
-      //set the subject to copy the current agent thought about
-      subject = new Thought(t2.agent, t2.trust, t2.witchMeter, t2.type);
-    }
-  }
+
   //add a new gossip action
   talks.add(new Talk(to, from, 0, subject ));
 }
+
 
 //Funtion to chose a new gossiper
 int getRandFrom(int i) {
@@ -215,16 +212,52 @@ int getRandFrom(int i) {
   }
 }
 
+//Funtion to return a random gossip subject takes the two gossipers as arguments
+Thought getRandSub(Agent i, Agent j) {
+  //set local varables to copy the agents from the argument
+  Agent to = agents.get(i.number);
+  Agent from = agents.get(j.number);
+  //decalare each sub 
+  Thought sub1=null;
+  Thought sub2=null;
+  Thought sub3=null;
+  // go throught the senders array of thoughts
+  for (Thought t : from.thoughts) {
+    //set the thoughs as thought 1 to avoid errors
+    if (sub1==null) {
+      sub1 =  new Thought(t.agent, t.trust, t.witchMeter, t.type);
+      sub2 =  new Thought(t.agent, t.trust, t.witchMeter, t.type);
+      sub3 =  new Thought(t.agent, t.trust, t.witchMeter, t.type);
+    }
+    //if the current thought has a higher witch score than the 1st subject
+    if (t.witchMeter>sub1.witchMeter) {
+      //set sub 1 to be the current thought
+      sub1 =  new Thought(t.agent, t.trust, t.witchMeter, t.type);
+      //else if the current thought has a higher witch score than the 2nd subject
+    } else if (t.witchMeter>sub2.witchMeter) {
+      //set sub 2 to be the current thought
+      sub2 =  new Thought(t.agent, t.trust, t.witchMeter, t.type);
+      //else if the current thought has a higher witch score than the 3rd subject
+    } else if (t.witchMeter>sub3.witchMeter) {
+      //set sub 3 to be the current thought
+      sub3 =  new Thought(t.agent, t.trust, t.witchMeter, t.type);
+    } else {
+      //if none of the above, change nothing
+    }
+  }
 
-int getRandSub(int i, int j) {
-  //get a random number
-  int r=int(random(agentNumber));
-  //if it isnt the same as the arguments #
-  if (r!=i&& r!=j) {
-    //return it
-    return r;
+  
+
+  //if the subject isnt the sender or receiver
+  if ( sub1.agent.number!= to.number && sub1.agent.number!= from.number) {
+    //return 1
+    return sub1;
+      //else check the 2nd sub. if they arent the sender or receiver
+  } else if ( sub2.agent.number!= to.number && sub2.agent.number!= from.number) {
+    //return 2
+    return sub2;
   } else {
-    //else reroll
-    return getRandSub(i, j);
+    //else return the 3rd
+    return sub3;
   }
 }
